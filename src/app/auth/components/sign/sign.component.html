@@ -1,0 +1,22 @@
+<img width="200px" class="app-login-img " height="200px" src="{{finModulePath}}"/>
+<p>Moabits financial module</p>
+<form nz-form [formGroup]="signForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please type a valid User Name">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="userName" id="userName" placeholder="userName" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please type a valid Password">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <div nz-row class="login-form-margin">
+    </div>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="isSubmitting$ | async" >Log in</button>
+    Or <a routerLink="/register" routerLinkActive="active">Register</a> to access to your information.
+  </form>
