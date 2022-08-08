@@ -11,13 +11,15 @@ import {
   signSuccessAction,
 } from "../actions/sign.action";
 import { SignResponseInterface } from "../../types/SignResponse.interface";
+import { PersistanceService } from "src/app/services/persistance.service";
 
 @Injectable()
 export class SignEffect {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private persistanceService: PersistanceService
   ) {}
 
   sign$ = createEffect(() =>
@@ -26,6 +28,10 @@ export class SignEffect {
       switchMap((request: any) => {
         return this.authService.sign(request).pipe(
           map((signResponse: SignResponseInterface) => {
+            this.persistanceService.set(
+              "accessToken",
+              signResponse.access_token
+            );
             return signSuccessAction({ signResponse });
           }),
 
@@ -42,7 +48,7 @@ export class SignEffect {
       this.actions$.pipe(
         ofType(signSuccessAction),
         tap(() => {
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/management");
         })
       ),
     { dispatch: false }

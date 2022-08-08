@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { RegisterComponent } from "./components/register/register.component";
 import { SignComponent } from "./components/sign/sign.component";
@@ -29,7 +28,6 @@ const routes: Routes = [
   declarations: [RegisterComponent, SignComponent],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     NzFormModule,
     NzInputModule,
@@ -42,4 +40,4 @@ const routes: Routes = [
   ],
   providers: [AuthService],
 })
-export class AuthModule {}
+export default class AuthModule {}
