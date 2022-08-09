@@ -21,14 +21,9 @@ export class AuthService {
   }
 
   sign(signUser: SignRequestInterface): Observable<SignResponseInterface> {
-    // For retrieving login information only
-    const algo = {
-      userName: signUser.userName,
-      password: signUser.password,
-    };
-    const body = this.formatDataForm(signUser);
-    const registerUrl = `${this.apiUrl}/auth/sign`;
-    return this.http.post<SignResponseInterface>(registerUrl, body);
+    const signBody = this.formatDataForm(signUser);
+    const signUrl = `${this.apiUrl}/auth/sign`;
+    return this.http.post<SignResponseInterface>(signUrl, signBody);
   }
 
   formatDataForm(data) {

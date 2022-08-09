@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import("./auth/auth.module").then((m) => m.default),
   },
   {
+    path: "",
+    loadChildren: () => import("./auth/auth.module").then((m) => m.default),
+  },
+  {
     path: "management",
     loadChildren: () =>
       import("./management/management.module").then((m) => m.default),

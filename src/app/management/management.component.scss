@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.listContainer {
+   margin: 10px;
+}
+
+p {
+    font-weight: 600;
+    color: #656161;
+    text-align: center;
+}

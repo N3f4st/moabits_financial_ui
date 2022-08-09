@@ -22,6 +22,7 @@ import { NzNotificationServiceModule } from "ng-zorro-antd/notification";
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "sign", component: SignComponent },
+  { path: "", component: SignComponent },
 ];
 
 @NgModule({

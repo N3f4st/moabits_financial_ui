@@ -7,7 +7,7 @@ import {
   CanLoad,
   Route,
 } from "@angular/router";
-import { PersistanceService } from "../services/persistance.service";
+import { PersistanceService } from "src/app/services/persistance.service";
 
 @Injectable()
 export class ManagementGuard implements CanLoad, CanActivate {

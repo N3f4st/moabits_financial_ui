@@ -10,6 +10,11 @@ import { StoreModule } from "@ngrx/store";
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
 import { PersistanceService } from "./services/persistance.service";
+import { NZ_I18N } from "ng-zorro-antd/i18n";
+import { en_US } from "ng-zorro-antd/i18n";
+import { registerLocaleData } from "@angular/common";
+import es from "@angular/common/locales/es";
+registerLocaleData(es);
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +30,7 @@ import { PersistanceService } from "./services/persistance.service";
     }),
     HttpClientModule,
   ],
-  providers: [PersistanceService],
+  providers: [PersistanceService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
